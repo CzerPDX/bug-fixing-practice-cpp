@@ -18,9 +18,14 @@ int main() {
         std::cout << "Bug: Expected 1 book from 1932, found " << booksFrom1932.size() << std::endl;
     }
 
-    bool removed = library.removeBook("1984");
+    bool removed = library.removeBooks("1984");
     if (!removed) {
         std::cout << "Bug: Failed to remove '1984'." << std::endl;
+    }
+
+    auto booksByOrwell2 = library.getBooksByAuthor("George Orwell");
+    if (booksByOrwell2.size() != 0) {
+        std::cout << "Bug: Expected 0 book by George Orwell, found " << booksByOrwell2.size() << std::endl;
     }
 
     return 0;

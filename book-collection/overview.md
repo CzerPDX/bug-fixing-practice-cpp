@@ -10,3 +10,7 @@ However, when the previous developer wrote the application, they introduced seve
 
 # My notes
 - BookCollection::getBooksByYear returns the list of books instead of result. Updated it to return the result instead.
+
+# My questions:
+- When removing a book by title, is there expected to be only one book by that title?
+Answer: no, there might be multiple books by that tile. Removing a book would require removing all books by that title not just one.

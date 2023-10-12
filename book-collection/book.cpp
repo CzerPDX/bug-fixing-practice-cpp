@@ -1,3 +1,4 @@
+#include <vector>
 #include "book.h"
 
 Book::Book(const std::string& title, const std::string& author, int year) {
@@ -22,14 +23,22 @@ void BookCollection::addBook(const Book& book) {
     books.push_back(book);
 }
 
-bool BookCollection::removeBook(const std::string& title) {
-    for (size_t i = 0; i < books.size(); ++i) {
-        if (books[i].getTitle() == title) {
-            books.erase(books.begin() + i);
-            return true;
+bool BookCollection::removeBooks(const std::string& title) {
+    bool successfullyRemoved = false;
+    for (std::vector<Book>::iterator itr = books.begin(); itr != books.end(); itr++) {
+        if (itr->getTitle() == title) {
+            books.erase(itr);
+            itr--;
+            successfullyRemoved = true;
         }
     }
-    return false;
+    // for (size_t i = 0; i < books.size(); ++i) {
+    //     if (books[i].getTitle() == title) {
+    //         books.erase(books.begin() + i);
+    //         successfullyRemoved true;
+    //     }
+    // }
+    return successfullyRemoved;
 }
 
 std::vector<Book> BookCollection::getBooksByAuthor(const std::string& author) const {
@@ -49,5 +58,6 @@ std::vector<Book> BookCollection::getBooksByYear(int year) const {
             result.push_back(book);
         }
     }
-    return books;
+    // return books;
+    return result;
 }

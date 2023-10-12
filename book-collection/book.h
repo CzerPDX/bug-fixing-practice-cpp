@@ -18,7 +18,7 @@ private:
 class BookCollection {
 public:
     void addBook(const Book& book);
-    bool removeBook(const std::string& title);
+    bool removeBooks(const std::string& title);
     std::vector<Book> getBooksByAuthor(const std::string& author) const;
     std::vector<Book> getBooksByYear(int year) const;
 private:
